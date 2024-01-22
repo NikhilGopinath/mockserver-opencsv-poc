@@ -11,7 +11,6 @@ public class Server {
     void start() throws IOException {
         try(ClientAndServer mockServer = new ClientAndServer(100);){
             mockServer.when(request().withPath("/test_path")).respond(new ServiceResponse());
-                    //.respond(org.mockserver.model.HttpResponse.response().withBody("{ \"key\": \"value\" }"));
             log.info("server started");
             try {
                 Thread.sleep(Long.MAX_VALUE);
@@ -24,5 +23,6 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
         new Server().start();
+
     }
 }
